@@ -23,4 +23,23 @@
 		<property name="maxIdle" value="8"/>
 	</bean>
 
+	<!-- Configuração do bean do spring para injeção do JdbcTemplate -->	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" >
+		<!-- O contrutor da classe  JdbcTemplate recebe como parâmetro o datasource contendo a conexão com o banco de dados-->
+		<constructor-arg ref="dataSource" />
+	</bean>
+	
+	<!-- Configuração do bean do spring para injeção do NamedParameterJdbcTemplate -->	
+	<bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" >
+		<!-- O contrutor da classe  JdbcTemplate recebe como parâmetro o datasource contendo a conexão com o banco de dados-->
+		<constructor-arg ref="dataSource"/>
+	</bean>
+	
+	<!-- Configuração do bean do spring para injeção do SimpleJdbcInsert -->	
+	<bean id="simpleJdbcInsert" class="org.springframework.jdbc.core.simple.SimpleJdbcInsert">
+		<!-- O contrutor da classe  JdbcTemplate recebe como parâmetro o datasource contendo a conexão com o banco de dados-->
+		<constructor-arg ref="dataSource"/>
+	</bean>
+	
+
 </beans>
