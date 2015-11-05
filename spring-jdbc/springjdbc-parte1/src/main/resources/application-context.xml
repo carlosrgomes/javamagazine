@@ -9,11 +9,11 @@
 	<!-- Habilita o suporte as anotações do spring -->
 	<context:annotation-config />
 
-	<!-- Configura o spring para scanear os pacotes com as anotações (@Autowired, @Service, @Resoruce...) para fazer as injeções de dependências -->
+	<!-- Configura o spring para scanear os pacotes com as anotações (@Autowired, @Service, @Resource...) para fazer as injeções de dependências -->
 	<context:component-scan base-package="br.com.javamagazine" />
 
 	<!-- Criação do datasource no spring contendo o poll de conexões -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" >
 		<property name="driverClassName" value="org.h2.Driver" />
 		<property name="url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1" />
 		<property name="username" value="root" />
