@@ -11,10 +11,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:application-context.xml")
 public class SpringJdbcTest  {
-	
+
 	@Autowired
 	private ApplicationContext applicationContext;
-	
 	
 	/***
 	 * Metodo de teste responsável por testar as configuracoes do spring
@@ -22,10 +21,7 @@ public class SpringJdbcTest  {
 	 */
 	@Test
 	public void testaConfiguracaoDoSpring(){
-		
 		Assert.assertNotNull(applicationContext);
-		
-	
 	}
 	
 }
