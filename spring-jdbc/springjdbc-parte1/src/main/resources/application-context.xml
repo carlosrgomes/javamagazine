@@ -22,6 +22,11 @@
 		<property name="initialSize" value="2"/>
 		<property name="maxIdle" value="8"/>
 	</bean>
+	
+	<!-- Configuração para inicializar o script de criação do banco de dados para os testes -->
+	<jdbc:initialize-database data-source="dataSource">
+		<jdbc:script location="classpath:script.sql"/>
+	</jdbc:initialize-database>
 
 	<!-- Configuração do bean do spring para injeção do JdbcTemplate -->	
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" >
