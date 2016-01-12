@@ -24,7 +24,7 @@ public class TestScriptDatabase  {
 	private JdbcTemplate jdbcTemplate;
 	
 	/***
-	 * Método responsável por testar o script de criação do banco de dados.
+	 * Metodo responsavel por testar o script do banco de dados.
 	 * Script: /src/main/resources/script.sql
 	 * Testes de insert, select
 	 */
@@ -43,10 +43,7 @@ public class TestScriptDatabase  {
 		
 		Assert.assertEquals("Testa o resultado da query",1 , listaResultado.size());
 		Assert.assertEquals("Testa se o nome do da pessoa corresponde com o que foi enviado via jdbc", "JOSE", listaResultado.get(0).getNome());
-		Assert.assertEquals("Testa o ddd do telefone", "99", listaResultado.get(0).getTelefone().getDdd());
 
-		Assert.assertEquals("Testa o numero do telefone", "999999999", listaResultado.get(0).getTelefone().getNumero());
-		
 	}
 	
 }
