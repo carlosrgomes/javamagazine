@@ -107,6 +107,15 @@ public class JdbcTemplateTest {
 		Assert.assertEquals(1, longValue);
 		
 	}
+
+	@Test
+	public void testSupportBatchUpdate() throws SQLException {
+		boolean isSupportBatchUpdate =
+				jdbcTemplate.getDataSource()
+						.getConnection()
+						.getMetaData().supportsBatchUpdates();
+		Assert.assertTrue(isSupportBatchUpdate);
+	}
 	
 	@Test
 	public void insertBatch(){
@@ -126,11 +135,12 @@ public class JdbcTemplateTest {
 		};
 		
 		jdbcTemplate.batchUpdate(sql, batchPreparedStatementSetter);
-		
-		
+
 		String sqlSelect = "SELECT * FROM PESSOA";
 		List<Pessoa> listaPessoa = jdbcTemplate.query(sqlSelect, new PessoaRowMapper());
 		Assert.assertEquals(501, listaPessoa.size());
 	}
+
+
 
 }
