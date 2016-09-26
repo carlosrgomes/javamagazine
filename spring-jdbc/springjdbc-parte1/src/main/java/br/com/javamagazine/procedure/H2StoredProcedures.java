@@ -16,12 +16,12 @@ public final class H2StoredProcedures {
         super();
 	}
 
-	public static ResultSet getPrimes(int beginRange, int endRange) throws SQLException {
+	public static ResultSet getPrimes() throws SQLException {
 
 		SimpleResultSet rs = new SimpleResultSet();
 		rs.addColumn("PRIME", Types.INTEGER, 10, 0);
 
-		for (int i = beginRange; i <= endRange; i++) {
+		for (int i = 1; i <= 10; i++) {
 
 			if (new BigInteger(String.valueOf(i)).isProbablePrime(100)) {
 				rs.addRow(i);

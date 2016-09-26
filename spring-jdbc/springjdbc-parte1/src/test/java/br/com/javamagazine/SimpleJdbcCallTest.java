@@ -24,15 +24,11 @@ public class SimpleJdbcCallTest {
     private SimpleJdbcCall simpleJdbcCall;
 
    @Test
-   public void insertNamedParameterJdbcTemplate(){
-       this.simpleJdbcCall.withProcedureName("GET_PRIME_NUMBERS");
-       SqlParameterSource sqlParameterSource= new MapSqlParameterSource()
-               .addValue("beginRange", 1)
-               .addValue("endRange", 10);
-
-      Map out =  simpleJdbcCall.execute(sqlParameterSource);
-
-        Assert.assertEquals(1, 1);
+   public void callsimpleJdbcCallTest(){
+        this.simpleJdbcCall.withProcedureName("GET_PRIME_NUMBERS");
+        SqlParameterSource sqlParameterSource= new MapSqlParameterSource();
+        Map out =  simpleJdbcCall.execute(sqlParameterSource);
+        Assert.assertEquals(out.size(), 1);
     }
 
 }
